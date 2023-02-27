@@ -19,6 +19,7 @@
 
 ### Blogs posts
 <!-- BLOG-POST-LIST:START -->
+- [Argumentos Opcionais Mutáveis em Python](https://dev.to/mdslino/argumentos-opcionais-mutaveis-em-python-4fbn)
 - [Migrações no Django sem Downtime](https://dev.to/mdslino/migracoes-no-django-sem-downtime-2hmh)
 - [Mais poder no seu Docker Compose](https://dev.to/mdslino/mais-poder-no-seu-docker-compose-5ab2)
 <!-- BLOG-POST-LIST:END -->
