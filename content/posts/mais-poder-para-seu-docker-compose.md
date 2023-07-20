@@ -1,6 +1,6 @@
 +++ 
 draft = false
-date = 2023-07-20T10:56:17-03:00
+date = 2022-09-26T11:45:17-03:00
 title = "Mais Poder no Seu Docker Compose"
 description = "Deixando seu docker-compose.yaml mais inteligente"
 slug = "mais-poder-no-seu-docker-compose"

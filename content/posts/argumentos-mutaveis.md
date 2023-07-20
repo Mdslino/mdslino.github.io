@@ -1,6 +1,6 @@
 +++ 
 draft = false
-date = 2023-07-20T11:01:25-03:00
+date = 2023-02-27T15:30:25-03:00
 title = "Argumentos Opcionais Mutáveis em Python"
 description = "Descubra como evitar problemas com argumentos mutáveis em Python"
 slug = "argumentos-opcionais-mutaveis-em-python"

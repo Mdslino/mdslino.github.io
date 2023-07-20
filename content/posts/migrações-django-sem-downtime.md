@@ -1,6 +1,6 @@
 +++ 
 draft = false
-date = 2023-07-20T10:56:17-03:00
+date = 2023-01-23T12:16:17-03:00
 title = "Migrações no Django sem Downtime"
 description = "Como realizar migrações no Django sem causar indisponibilidade no sistema"
 slug = "mais-poder-no-seu-docker-compose"
