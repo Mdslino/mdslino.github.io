@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>
+  Argumentos Opcionais Mutáveis em Python · Marcelo Lino
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Marcelo Lino">
+<meta name="description" content="Descubra como evitar problemas com argumentos mutáveis em Python">
+<meta name="keywords" content="blog,developer,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Argumentos Opcionais Mutáveis em Python"/>
+<meta name="twitter:description" content="Descubra como evitar problemas com argumentos mutáveis em Python"/>
+
+<meta property="og:title" content="Argumentos Opcionais Mutáveis em Python" />
+<meta property="og:description" content="Descubra como evitar problemas com argumentos mutáveis em Python" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.example.com/posts/argumentos-opcionais-mutaveis-em-python/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-20T11:01:25-03:00" />
+<meta property="article:modified_time" content="2023-07-20T11:01:25-03:00" />
+
+
+
+
+
+
+<link rel="canonical" href="http://www.example.com/posts/argumentos-opcionais-mutaveis-em-python/">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.5adbe72fc41dcfb852215b84695288939b6b606db73238bd3ee936469572fc9c.css" integrity="sha256-WtvnL8Qdz7hSIVuEaVKIk5trYG23Mji9Puk2RpVy/Jw=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Marcelo Lino
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">Sobre</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://www.example.com/posts/argumentos-opcionais-mutaveis-em-python/">
+              Argumentos Opcionais Mutáveis em Python
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-07-20T11:01:25-03:00">
+                July 20, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              3 minutos de leitura
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa fa-user" aria-hidden="true"></i>
+    <a href="/authors/marcelo-lino/">Marcelo Lino</a></div>
+
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/categories/python/">python</a>
+      <span class="separator">•</span>
+    <a href="/categories/programa%C3%A7%C3%A3o/">programação</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/python/">python</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/programa%C3%A7%C3%A3o/">programação</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p>Argumentos deveriam ser coisas simples, não é mesmo? Você passa um valor para a função e ela faz o que você espera. Mas o que acontece quando a sua função não te obriga a passar um valor e trabalha com um valor padrão?</p>
+<p>Uma função de soma que recebe dois valores e retorna a soma deles, porém caso nenhum valor seja inserido os argumentos assumem o valor 10 para cada um, retornando assim 20.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">soma</span>(a<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, b<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>):
+    <span style="color:#66d9ef">return</span> a <span style="color:#f92672">+</span> b
+</code></pre></div><p>Nesse exemplo os valores padrões são imutáveis, então a cada operação não há modificação no seu conteúdo.</p>
+<p>Agora o que acontece se modificamos o valor padrão para uma lista ou um dicionário?</p>
+<h2 id="problema">
+  Problema
+  <a class="heading-link" href="#problema">
+    <i class="fa fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> random <span style="color:#f92672">import</span> randint
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mutable_arguments</span>(a_list<span style="color:#f92672">=</span>[], a_dict<span style="color:#f92672">=</span>{}):
+    a_list<span style="color:#f92672">.</span>append(randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>))
+    a_dict[randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>)] <span style="color:#f92672">=</span> randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>)
+    
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;A lista agora contém os seguintes items: </span><span style="color:#e6db74">{</span>a_list<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;O dicionário agora contém os seguintes items: </span><span style="color:#e6db74">{</span>a_dict<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+
+mutable_arguments()
+mutable_arguments()
+mutable_arguments()
+</code></pre></div><p>Essa execução gera a seguinte saída:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">The local list a_list now contains: [43]
+The local dict a_dict now contains: {50: 61}
+
+The local list a_list now contains: [43, 74]
+The local dict a_dict now contains: {50: 61, 128: 69}
+
+The local list a_list now contains: [43, 74, 42]
+The local dict a_dict now contains: {50: 61, 128: 69, 86: 79}
+</code></pre></div><p>Note que a cada execução a lista e o dicionário são modificados, isso acontece porque o interpretador do Python aloca cada função ou método na inicialização do programa, caso essa assinatura contenha inicializadores de objetos eles então serão instanciados e alocados em memória durante a inicialização.</p>
+<p>Sendo assim, quando você executa seu código e altera esses mesmos valores, está alterando objetos já alocados e não criando novos a cada execução. O que pode ao final do programa gerar resultados inesperados.</p>
+<h2 id="solução">
+  Solução
+  <a class="heading-link" href="#solu%c3%a7%c3%a3o">
+    <i class="fa fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<p>Existem duas formas de resolver esse problema, a primeira é passar <code>None</code> como valor padrão e então verificar se o valor é <code>None</code> e então atribuir o valor padrão.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> random <span style="color:#f92672">import</span> randint
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">immutable_arguments</span>(a_list<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, a_dict<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+    <span style="color:#66d9ef">if</span> a_list <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+        a_list <span style="color:#f92672">=</span> []
+    <span style="color:#66d9ef">if</span> a_dict <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+        a_dict <span style="color:#f92672">=</span> {}
+        
+    a_list<span style="color:#f92672">.</span>append(randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>))
+    a_dict[randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>)] <span style="color:#f92672">=</span> randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>)
+    
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;A lista agora contém os seguintes items: </span><span style="color:#e6db74">{</span>a_list<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;O dicionário agora contém os seguintes items: </span><span style="color:#e6db74">{</span>a_dict<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+
+immutable_arguments()
+immutable_arguments()
+immutable_arguments()
+</code></pre></div><p>Outra abordagem é reatribuir o valor padrão ou então um objeto mutável vazio.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> random <span style="color:#f92672">import</span> randint
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">immutable_arguments</span>(a_list<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, a_dict<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+    a_list <span style="color:#f92672">=</span> a_list <span style="color:#f92672">or</span> []
+    a_dict <span style="color:#f92672">=</span> a_dict <span style="color:#f92672">or</span> {}
+    
+    a_list<span style="color:#f92672">.</span>append(randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>))
+    a_dict[randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>)] <span style="color:#f92672">=</span> randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>)
+    
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;A lista agora contém os seguintes items: </span><span style="color:#e6db74">{</span>a_list<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;O dicionário agora contém os seguintes items: </span><span style="color:#e6db74">{</span>a_dict<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+
+immutable_arguments()
+immutable_arguments()
+immutable_arguments()
+</code></pre></div><p>Em ambos os casos a saída será a seguinte:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">A lista agora contém os seguintes items: [44]
+O dicionário agora contém os seguintes items: {7: 37}
+
+A lista agora contém os seguintes items: [39]
+O dicionário agora contém os seguintes items: {28: 50}
+
+A lista agora contém os seguintes items: [40]
+O dicionário agora contém os seguintes items: {40: 99}
+</code></pre></div><p>Perceba que agora a cada execução os valores são reatribuídos e não mais modificados.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2023
+     Marcelo Lino 
+    ·
+    
+    Promovido por <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js" integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D&#43;Uk="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>
+  Migrações no Django sem Downtime · Marcelo Lino
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Marcelo Lino">
+<meta name="description" content="Como realizar migrações no Django sem causar indisponibilidade no sistema">
+<meta name="keywords" content="blog,developer,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Migrações no Django sem Downtime"/>
+<meta name="twitter:description" content="Como realizar migrações no Django sem causar indisponibilidade no sistema"/>
+
+<meta property="og:title" content="Migrações no Django sem Downtime" />
+<meta property="og:description" content="Como realizar migrações no Django sem causar indisponibilidade no sistema" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.example.com/posts/mais-poder-no-seu-docker-compose/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-20T10:56:17-03:00" />
+<meta property="article:modified_time" content="2023-07-20T10:56:17-03:00" />
+
+
+
+
+
+
+<link rel="canonical" href="http://www.example.com/posts/mais-poder-no-seu-docker-compose/">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.5adbe72fc41dcfb852215b84695288939b6b606db73238bd3ee936469572fc9c.css" integrity="sha256-WtvnL8Qdz7hSIVuEaVKIk5trYG23Mji9Puk2RpVy/Jw=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/img/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Marcelo Lino
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">Sobre</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://www.example.com/posts/mais-poder-no-seu-docker-compose/">
+              Migrações no Django sem Downtime
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2023-07-20T10:56:17-03:00">
+                July 20, 2023
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              4 minutos de leitura
+            </span>
+          </div>
+          <div class="authors">
+  <i class="fa fa-user" aria-hidden="true"></i>
+    <a href="/authors/marcelo-lino/">Marcelo Lino</a></div>
+
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/categories/python/">python</a>
+      <span class="separator">•</span>
+    <a href="/categories/django/">django</a>
+      <span class="separator">•</span>
+    <a href="/categories/programa%C3%A7%C3%A3o/">programação</a>
+      <span class="separator">•</span>
+    <a href="/categories/devops/">devops</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/django/">django</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/migrations/">migrations</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/downtime/">downtime</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/python/">python</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p>Uma das coisas mais ferramentas mais poderosas do framework <em>Django</em> é o seu <em>ORM</em> e o gerenciamento de migrações. Porém quando enfrentamos um ambiente produtivo, por diversas vezes temos que executar migrações que adicionam, removem ou alteram colunas, o que causa uma indisponibilidade no sistema, até que o novo código que comporte essa nova estrutura do modelo esteja disponível para atender as requisições.</p>
+<p>O fluxo de implantação de um novo código de aplicação Django geralmente consiste em:</p>
+<div class="mermaid">
+flowchart TB
+
+Old_Django_Code(Execução Código Atual)
+Migration_Execution[(Execução da Migração)]
+New_Django_Code(Execução Novo Código)
+
+Old_Django_Code --> Migration_Execution --> New_Django_Code
+
+</div>
+
+<p>O problema acontece pois entre a <em><strong>Execução da Migração</strong></em> e a <em><strong>Execução do Novo Código</strong></em> o <em><strong>Código Atual</strong></em> ainda estará em execução até que o novo possa assumir, fazendo com que o <em>Django</em> dispare um <code>IntegrityError</code> deixando todas as suas gravações de dados indisponíveis nesse período de tempo.</p>
+<p>Pra solucionar esse problema temos alguns procedimentos que podemos seguir.</p>
+<h2 id="adicionando-campos-ou-tabelas">
+  Adicionando Campos ou Tabelas
+  <a class="heading-link" href="#adicionando-campos-ou-tabelas">
+    <i class="fa fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<h3 id="adicionar-um-campo-null-ou-nova-tabela">
+  Adicionar um campo <code>NULL</code> ou nova tabela
+  <a class="heading-link" href="#adicionar-um-campo-null-ou-nova-tabela">
+    <i class="fa fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<ol>
+<li>Crie o modelo ou a coluna no seu código;</li>
+<li>Gere as respectivas migrações com <code>python manage.py makemigrations</code>;</li>
+<li>Faça duas <em>Pull Requests</em>, uma contendo a alteração do modelo e outra com a respectiva migração;</li>
+<li>Faça o <em>Merge</em> e a implantação da <em>Pull Request</em> com a migração;</li>
+<li>Execute a migração no seu banco de dados de produção. Adição de campos não deve causar problemas se o modelo em produção não esperar que esses campos estejam lá;</li>
+<li>Faça o <em>Merge</em> da <em>Pull Request</em> com a mudança no modelo;</li>
+<li>Implante o código com a mudança do modelo. A partir de agora o código vai começar a ler e escrever na nova coluna.</li>
+</ol>
+<h3 id="adicionando-um-campo-not-null">
+  Adicionando um campo <code>NOT NULL</code>
+  <a class="heading-link" href="#adicionando-um-campo-not-null">
+    <i class="fa fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<p>Para iniciar a adição de um campo <strong>NOT NULL</strong>, primeiro siga os passos acima adicionando ele como <strong>NULL</strong> inicialmente</p>
+<ol>
+<li>Altere a coluna no modelo para <code>null=False</code>. Certifique-se que no seu código você não está inserindo ou atualizando esse campo com valores nulos;</li>
+<li>Gere as respectivas migrações com <code>python manage.py makemigrations</code>;</li>
+<li>Faça duas <em>Pull Requests</em>, uma contendo a alteração do modelo e outra com a respectiva migração;</li>
+<li>Faça o <em>Merge</em> da <em>Pull Request</em> com a mudança no modelo;</li>
+<li>Implante o código com a mudança do modelo. A partir de agora o código vai começar a gravar na nova coluna.</li>
+<li>Faça o <em>Merge</em> e a implantação da <em>Pull Request</em> com a migração;</li>
+<li>Execute a migração no seu banco de dados de produção.</li>
+</ol>
+<h4 id="adicionando-not-null-em-tabelas-com-muitos-dados">
+  Adicionando <code>NOT NULL</code> em tabelas com muitos dados
+  <a class="heading-link" href="#adicionando-not-null-em-tabelas-com-muitos-dados">
+    <i class="fa fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h4>
+<p>As migrações do Django insistem que se exista um valor default para colunas com a <em>constraint</em> <code>NOT NULL</code>. Esse valor será usado para popular as colunas vazias durante a migração. Esse processo de atualização efetuará um <code>LOCK</code> na tabela para escrita até que a atualização esteja concluída. Para tabelas pequenas com menos de 100.000 linhas, provavelmente não haverá problemas, porém para colunas com mais dados isso pode causar uma indisponibilidade do sistema até que a tabela esteja novamente disponível.</p>
+<p>Afim de evitar esse comportamento, podemos executar <a href="https://docs.djangoproject.com/pt-br/4.1/howto/writing-migrations/#non-atomic-migrations"  class="external-link" target="_blank" rel="noopener"><strong>Migrações Não Atômicas</strong></a>, simplesmente adicionando o atributo <code>atomic = False</code> a sua migração, como no exemplo a seguir.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> django.db <span style="color:#f92672">import</span> migrations
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Migration</span>(migrations<span style="color:#f92672">.</span>Migration):
+    atomic <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</code></pre></div><h2 id="removendo-campos-ou-tabelas">
+  Removendo Campos ou Tabelas
+  <a class="heading-link" href="#removendo-campos-ou-tabelas">
+    <i class="fa fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h2>
+<h3 id="removendo-um-campo-null-ou-uma-tabela">
+  Removendo um campo <code>NULL</code> ou uma Tabela
+  <a class="heading-link" href="#removendo-um-campo-null-ou-uma-tabela">
+    <i class="fa fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<p>Basicamente é o mesmo procedimento de adição, porém com os passo em uma ordem um pouco diferente.</p>
+<ol>
+<li>Remova todas as utilizações do modelo ou coluna a serem removidas da sua aplicação;</li>
+<li>Faça a implantação de uma versão que ainda tenha a definição da coluna ou modelo a ser removida, porém que não tenha mais a sua utilização;</li>
+<li>Faça a remoção da coluna ou modelo do seu código;</li>
+<li>Gere a migração para a remoção com <code>python manage.py makemigrations</code>;</li>
+<li>Faça o <em>Merge</em> da mudança do modelo;</li>
+<li>Implante o código da mudança do modelo. Certifique-se que não está ocorrendo nenhum erro por ainda existir alguma referência ao código que não mais existe;</li>
+<li>Faça o <em>Merge</em> da migração;</li>
+<li>Implante o código da migração;</li>
+<li>Execute a migração no seu banco de dados.</li>
+</ol>
+<h3 id="removendo-um-campo-not-null">
+  Removendo um campo <code>NOT NULL</code>
+  <a class="heading-link" href="#removendo-um-campo-not-null">
+    <i class="fa fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+    <span class="sr-only">Link para o cabeçalho</span>
+  </a>
+</h3>
+<p>Para remover um campo não nulo, primeiramente você tem que transformá-lo em um campo nulo, então seguir os passos a cima para remover um campo não nulo. Os passos para transformar o campo não nulo em nulo são:</p>
+<ol>
+<li>Alterar o seu campo para <code>null=True</code>;</li>
+<li>Criar as migrações para esse mudança;</li>
+<li>Criar duas <em>Pull Requests</em> separadas, uma para a mudança no modelo e outra para migração;</li>
+<li>Fazer o <em>Merge</em> e implantar o <em>Pull Request</em> com a migração;</li>
+<li>Execute a migração no banco de dados;</li>
+<li>Faça o <em>Merge</em> e a implantação da mudança do modelo;</li>
+<li><a href="#removendo-um-campo-null-ou-uma-tabela" >Execute os passos para remover um campo nulo</a></li>
+</ol>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3 id="veja-também-em-docker">
+        Veja também em Docker
+        <a class="heading-link" href="#veja-tamb%c3%a9m-em-docker">
+          <i class="fa fa-link" aria-hidden="true" title="Link para o cabeçalho"></i>
+          <span class="sr-only">Link para o cabeçalho</span>
+        </a>
+      </h3>
+      <nav>
+        <ul>
+        
+        
+          
+        
+          
+        
+        </ul>
+      </nav>
+    
+  
+</section>
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2023
+     Marcelo Lino 
+    ·
+    
+    Promovido por <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"
+    integrity="sha256-QdTG1YTLLTwD3b95jLqFxpQX9uYuJMNAtVZgwKX4oYU=" crossorigin="anonymous"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+  
+
+  
+  
+  <script src="/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js" integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D&#43;Uk="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

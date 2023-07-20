@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Marcelo Lino</title>
+    <link>http://www.example.com/posts/</link>
+    <description>Recent content in Posts on Marcelo Lino</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Thu, 20 Jul 2023 11:01:25 -0300</lastBuildDate><atom:link href="http://www.example.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Argumentos Opcionais Mutáveis em Python</title>
+      <link>http://www.example.com/posts/argumentos-opcionais-mutaveis-em-python/</link>
+      <pubDate>Thu, 20 Jul 2023 11:01:25 -0300</pubDate>
+      
+      <guid>http://www.example.com/posts/argumentos-opcionais-mutaveis-em-python/</guid>
+      <description>Argumentos deveriam ser coisas simples, não é mesmo? Você passa um valor para a função e ela faz o que você espera. Mas o que acontece quando a sua função não te obriga a passar um valor e trabalha com um valor padrão?
+Uma função de soma que recebe dois valores e retorna a soma deles, porém caso nenhum valor seja inserido os argumentos assumem o valor 10 para cada um, retornando assim 20.</description>
+    </item>
+    
+    <item>
+      <title>Mais Poder no Seu Docker Compose</title>
+      <link>http://www.example.com/posts/mais-poder-no-seu-docker-compose/</link>
+      <pubDate>Thu, 20 Jul 2023 10:56:17 -0300</pubDate>
+      
+      <guid>http://www.example.com/posts/mais-poder-no-seu-docker-compose/</guid>
+      <description>Já podemos dar como certo que o docker está em um momento ou outro na vida de um programador, e muitas vezes nos utilizamos de arquivos docker-compose.yaml para executarmos localmente nossas aplicações e suas dependências e algumas vezes até em produção.
+Por vezes temos que executar coisas mais complexas como executar uma migração de banco de dados antes da nossa aplicação executar, garantir que o banco de dados já esteja pronto para receber conexões, executar um subconjunto de dependências e assim por diante.</description>
+    </item>
+    
+    <item>
+      <title>Migrações no Django sem Downtime</title>
+      <link>http://www.example.com/posts/mais-poder-no-seu-docker-compose/</link>
+      <pubDate>Thu, 20 Jul 2023 10:56:17 -0300</pubDate>
+      
+      <guid>http://www.example.com/posts/mais-poder-no-seu-docker-compose/</guid>
+      <description>Uma das coisas mais ferramentas mais poderosas do framework Django é o seu ORM e o gerenciamento de migrações. Porém quando enfrentamos um ambiente produtivo, por diversas vezes temos que executar migrações que adicionam, removem ou alteram colunas, o que causa uma indisponibilidade no sistema, até que o novo código que comporte essa nova estrutura do modelo esteja disponível para atender as requisições.
+O fluxo de implantação de um novo código de aplicação Django geralmente consiste em:</description>
+    </item>
+    
+  </channel>
+</rss>

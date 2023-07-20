@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Marcelo Lino</title>
+    <link>http://www.example.com/series/python/</link>
+    <description>Recent content in Python on Marcelo Lino</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Thu, 20 Jul 2023 11:01:25 -0300</lastBuildDate><atom:link href="http://www.example.com/series/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Argumentos Opcionais Mutáveis em Python</title>
+      <link>http://www.example.com/posts/argumentos-opcionais-mutaveis-em-python/</link>
+      <pubDate>Thu, 20 Jul 2023 11:01:25 -0300</pubDate>
+      
+      <guid>http://www.example.com/posts/argumentos-opcionais-mutaveis-em-python/</guid>
+      <description>Argumentos deveriam ser coisas simples, não é mesmo? Você passa um valor para a função e ela faz o que você espera. Mas o que acontece quando a sua função não te obriga a passar um valor e trabalha com um valor padrão?
+Uma função de soma que recebe dois valores e retorna a soma deles, porém caso nenhum valor seja inserido os argumentos assumem o valor 10 para cada um, retornando assim 20.</description>
+    </item>
+    
+  </channel>
+</rss>

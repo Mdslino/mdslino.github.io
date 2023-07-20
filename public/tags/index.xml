@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Marcelo Lino</title>
+    <link>http://www.example.com/tags/</link>
+    <description>Recent content in Tags on Marcelo Lino</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Thu, 20 Jul 2023 11:01:25 -0300</lastBuildDate><atom:link href="http://www.example.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>programação</title>
+      <link>http://www.example.com/tags/programa%C3%A7%C3%A3o/</link>
+      <pubDate>Thu, 20 Jul 2023 11:01:25 -0300</pubDate>
+      
+      <guid>http://www.example.com/tags/programa%C3%A7%C3%A3o/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>http://www.example.com/tags/python/</link>
+      <pubDate>Thu, 20 Jul 2023 11:01:25 -0300</pubDate>
+      
+      <guid>http://www.example.com/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>http://www.example.com/tags/devops/</link>
+      <pubDate>Thu, 20 Jul 2023 10:56:17 -0300</pubDate>
+      
+      <guid>http://www.example.com/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>django</title>
+      <link>http://www.example.com/tags/django/</link>
+      <pubDate>Thu, 20 Jul 2023 10:56:17 -0300</pubDate>
+      
+      <guid>http://www.example.com/tags/django/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>http://www.example.com/tags/docker/</link>
+      <pubDate>Thu, 20 Jul 2023 10:56:17 -0300</pubDate>
+      
+      <guid>http://www.example.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker-compose</title>
+      <link>http://www.example.com/tags/docker-compose/</link>
+      <pubDate>Thu, 20 Jul 2023 10:56:17 -0300</pubDate>
+      
+      <guid>http://www.example.com/tags/docker-compose/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>downtime</title>
+      <link>http://www.example.com/tags/downtime/</link>
+      <pubDate>Thu, 20 Jul 2023 10:56:17 -0300</pubDate>
+      
+      <guid>http://www.example.com/tags/downtime/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>migrations</title>
+      <link>http://www.example.com/tags/migrations/</link>
+      <pubDate>Thu, 20 Jul 2023 10:56:17 -0300</pubDate>
+      
+      <guid>http://www.example.com/tags/migrations/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
