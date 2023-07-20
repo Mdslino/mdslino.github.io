@@ -59,11 +59,11 @@ tabWidth = 4
   icon = "fa fa-github fa-2x"
   weight = 1
   url = "https://github.com/Mdslino"
-[[params.social]]
-  name = "Twitter"
-  icon = "fa fa-twitter fa-2x"
-  weight = 3
-  url = "https://twitter.com/mdslino2"
+# [[params.social]]
+#   name = "Twitter"
+#   icon = "fa fa-twitter fa-2x"
+#   weight = 3
+#   url = "https://twitter.com/mdslino2"
 
 [[params.mermaid]]
   theme = "dark"
