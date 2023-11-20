@@ -1,6 +1,6 @@
 +++ 
 draft = false
-date = 2023-11-19T22:48:25-03:00
+date = 2023-11-19T15:30:25-03:00
 title = "O Manga é o que Move o Anime"
 description = "Uma análise sobre o objetivo do anime em promover o manga"
 slug = "o-manga-e-o-que-move-o-anime"
