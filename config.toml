@@ -71,9 +71,9 @@ tabWidth = 4
 
 # Menu links
 [[menu.main]]
-  name = "Blog"
+  name = "Desenvolvimento"
   weight = 1
-  url  = "posts/"
+  url  = "posts/tech"
 [[menu.main]]
   name = "Sobre"
   weight = 2
