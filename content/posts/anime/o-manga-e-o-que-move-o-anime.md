@@ -10,3 +10,7 @@ categories = ["anime", "manga"]
 externalLink = ""
 series = ["Anime"]
 +++
+
+# O Manga é o que Move o Anime
+
+<script async src="https://www.tiktok.com/embed.js"></script>
