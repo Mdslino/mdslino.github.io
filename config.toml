@@ -75,6 +75,10 @@ tabWidth = 4
   weight = 1
   url  = "posts/tech"
 [[menu.main]]
-  name = "Sobre"
+  name = "Animes"
   weight = 2
+  url = "posts/animes"
+[[menu.main]]
+  name = "Sobre"
+  weight = 3
   url = "about/"
