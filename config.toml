@@ -77,7 +77,7 @@ tabWidth = 4
 [[languages.pt-br.menu.main]]
   name = "Animes"
   weight = 2
-  url = "animes/"
+  url = "anime/"
 [[languages.pt-br.menu.main]]
   name = "Sobre"
   weight = 3
