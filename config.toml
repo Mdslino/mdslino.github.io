@@ -3,7 +3,7 @@ title = "Marcelo Lino"
 theme = "hugo-coder"
 languagecode = "pt-br"
 defaultcontentlanguage = "pt-br"
-
+pluralizeListTitles = false
 paginate = 20
 
 disqusShortname = "yourdiscussshortname"
@@ -59,26 +59,39 @@ tabWidth = 4
   icon = "fa fa-github fa-2x"
   weight = 1
   url = "https://github.com/Mdslino"
-# [[params.social]]
-#   name = "Twitter"
-#   icon = "fa fa-twitter fa-2x"
-#   weight = 3
-#   url = "https://twitter.com/mdslino2"
+[[params.social]]
+  name = "Twitter"
+  icon = "fa fa-twitter fa-2x"
+  weight = 3
+  url = "https://twitter.com/mdslino2"
 
 [[params.mermaid]]
   theme = "dark"
   align = "center"
 
 # Menu links
-[[menu.main]]
-  name = "Desenvolvimento"
+[[languages.pt-br.menu.main]]
+  name = "Programação"
+  title = "Programação"
   weight = 1
-  url  = "posts/tech"
-[[menu.main]]
+  url  = "development/"
+[[languages.pt-br.menu.main]]
   name = "Animes"
   weight = 2
-  url = "posts/animes"
-[[menu.main]]
+  url = "animes/"
+[[languages.pt-br.menu.main]]
   name = "Sobre"
   weight = 3
   url = "about/"
+# [[menu.main]]
+#   name = "Programação"
+#   weight = 1
+#   url  = "development/"
+# [[menu.main]]
+#   name = "Animes"
+#   weight = 2
+#   url = "animes/"
+# [[menu.main]]
+#   name = "Sobre"
+#   weight = 3
+#   url = "about/"
