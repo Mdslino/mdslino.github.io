@@ -72,7 +72,6 @@ tabWidth = 4
 # Menu links
 [[languages.pt-br.menu.main]]
   name = "Programação"
-  title = "Programação"
   weight = 1
   url  = "development/"
 [[languages.pt-br.menu.main]]
