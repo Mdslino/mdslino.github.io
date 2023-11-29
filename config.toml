@@ -82,15 +82,4 @@ tabWidth = 4
   name = "Sobre"
   weight = 3
   url = "about/"
-# [[menu.main]]
-#   name = "Programação"
-#   weight = 1
-#   url  = "development/"
-# [[menu.main]]
-#   name = "Animes"
-#   weight = 2
-#   url = "animes/"
-# [[menu.main]]
-#   name = "Sobre"
-#   weight = 3
-#   url = "about/"
+
