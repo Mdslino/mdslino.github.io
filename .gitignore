@@ -1,0 +1,28 @@
+# Hugo output directory
+public/
+
+# Hugo cache directory
+/resources/
+
+# Ignore generated files
+*.html
+*.css
+*.js
+
+# Ignore compiled assets
+/assets/
+
+# Ignore temporary files
+*.bak
+*.tmp
+*.swp
+
+# Ignore editor-specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db!

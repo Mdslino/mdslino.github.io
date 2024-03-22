@@ -1,0 +1,85 @@
+baseurl = "http://mdslino.github.io"
+title = "Marcelo Lino"
+theme = "hugo-coder"
+languagecode = "pt-br"
+defaultcontentlanguage = "pt-br"
+pluralizeListTitles = false
+paginate = 20
+
+disqusShortname = "yourdiscussshortname"
+
+[markup.highlight]
+anchorLineNos = false
+codeFences = true
+guessSyntax = false
+hl_Lines = ''
+hl_inline = false
+lineAnchors = ''
+lineNoStart = 1
+lineNos = false
+lineNumbersInTable = true
+noClasses = true
+noHl = false
+style = 'monokai'
+tabWidth = 4
+
+[params]
+  author = "Marcelo Lino"
+  info = "Desenvolvedor de Software e Analista de Animes"
+  description = "Site pessoal de Marcelo Lino"
+  keywords = "blog,developer,personal"
+  avatarurl = "images/avatar.jpg"
+  gravatar = "mdslino@gmail.com"
+
+  faviconSVG = "/img/favicon.svg"
+  favicon_32 = "/img/favicon-32x32.png"
+  favicon_16 = "/img/favicon-16x16.png"
+
+  since = 2023
+
+  enableTwemoji = true
+
+  colorScheme = "auto"
+  hidecolorschemetoggle = false
+
+
+  # customCSS = ["css/custom.css"]
+  # customSCSS = ["scss/custom.scss"]
+  # customJS = ["js/custom.js"]
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+  author = "authors"
+
+# Social links
+[[params.social]]
+  name = "Github"
+  icon = "fa fa-github fa-2x"
+  weight = 1
+  url = "https://github.com/Mdslino"
+[[params.social]]
+  name = "Twitter"
+  icon = "fa fa-twitter fa-2x"
+  weight = 3
+  url = "https://twitter.com/mdslino2"
+
+[[params.mermaid]]
+  theme = "dark"
+  align = "center"
+
+# Menu links
+[[languages.pt-br.menu.main]]
+  name = "Programação"
+  weight = 1
+  url  = "development/"
+[[languages.pt-br.menu.main]]
+  name = "Animes"
+  weight = 2
+  url = "anime/"
+[[languages.pt-br.menu.main]]
+  name = "Sobre"
+  weight = 3
+  url = "about/"
+
