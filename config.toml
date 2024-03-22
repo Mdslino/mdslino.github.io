@@ -71,15 +71,11 @@ tabWidth = 4
 
 # Menu links
 [[languages.pt-br.menu.main]]
-  name = "Programação"
-  weight = 1
-  url  = "development/"
-[[languages.pt-br.menu.main]]
-  name = "Animes"
-  weight = 2
-  url = "anime/"
-[[languages.pt-br.menu.main]]
   name = "Sobre"
   weight = 3
   url = "about/"
 
+[[languages.pt-br.menu.main]]
+  name = "Blog"
+  weight = 1
+  url  = "blog/"

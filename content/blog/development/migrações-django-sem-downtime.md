@@ -3,7 +3,7 @@ draft = false
 date = 2023-01-23T12:16:17-03:00
 title = "Migrações no Django sem Downtime"
 description = "Como realizar migrações no Django sem causar indisponibilidade no sistema"
-slug = "mais-poder-no-seu-docker-compose"
+slug = "migrações-django-sem-downtime"
 authors = ["Marcelo Lino"]
 tags = ["django", "migrations", "downtime", "python"]
 categories = ["python", "django", "programação", "devops"]
@@ -15,7 +15,7 @@ Uma das coisas mais ferramentas mais poderosas do framework _Django_ é o seu _O
 
 O fluxo de implantação de um novo código de aplicação Django geralmente consiste em:
 
-```mermaid
+{{<mermaid>}}
 flowchart TB
 
 Old_Django_Code(Execução Código Atual)
@@ -23,7 +23,7 @@ Migration_Execution[(Execução da Migração)]
 New_Django_Code(Execução Novo Código)
 
 Old_Django_Code --> Migration_Execution --> New_Django_Code
-```
+{{< /mermaid >}}
 
 O problema acontece pois entre a ___Execução da Migração___ e a ___Execução do Novo Código___ o ___Código Atual___ ainda estará em execução até que o novo possa assumir, fazendo com que o _Django_ dispare um `IntegrityError` deixando todas as suas gravações de dados indisponíveis nesse período de tempo.
 
